@@ -1,0 +1,24 @@
+
+@mixin backGroundGradient($leftClr, $rightClr, $fallback) {
+
+  /* fallback */
+  background-color: $fallback;
+
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($leftClr), to($rightClr));
+
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, $leftClr, $rightClr);
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, $leftClr, $rightClr);
+
+  /* IE 10 */
+  background: -ms-linear-gradient(top, $leftClr, $rightClr);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, $leftClr, $rightClr);
+
+}
+
+

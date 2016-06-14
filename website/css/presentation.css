@@ -1,0 +1,67 @@
+body {
+  /* fallback */
+  background-color: #33492a;
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#79b02a), to(#33492a));
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #79b02a, #33492a);
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #79b02a, #33492a);
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #79b02a, #33492a);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #79b02a, #33492a); }
+
+.stage {
+  width: 1367px;
+  height: 768px;
+  background: url("../images/meow.jpg") 0 0 no-repeat;
+  margin: 0 auto 20px auto;
+  background-size: cover; }
+
+#days, #users {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  margin-top: -40px;
+  width: 80px;
+  height: 80px;
+  border: 4px solid #000; }
+
+#users {
+  left: auto;
+  right: 20px; }
+
+#controls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid #cccccc;
+  z-index: 900;
+  background-color: #ffffff; }
+
+.stage {
+  position: relative; }
+
+h1 {
+  margin: 0;
+  padding: 20px; }
+
+.trigger-1 {
+  position: absolute;
+  right: 20px;
+  top: 20px; }
+
+.action-1 {
+  display: none;
+  width: 400px;
+  height: 320px;
+  margin: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: left; }
+
+.action-1.active {
+  display: block; }

@@ -1,0 +1,70 @@
+
+@import "mixins";
+
+body {
+  @include backGroundGradient(#79b02a, #33492a, #33492a);
+}
+
+
+.stage {
+  width: 1367px; // 1920
+  height: 768px; // 1200
+  background: url("../images/meow.jpg") 0 0 no-repeat;
+  margin: 0 auto 20px auto;
+  background-size: cover;
+}
+
+#days, #users {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  margin-top: -40px;
+  width: 80px;
+  height: 80px;
+  border: 4px solid #000;
+}
+
+#users {
+  left: auto;
+  right: 20px;
+}
+
+#controls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid #cccccc;
+  z-index: 900;
+  background-color: #ffffff;
+}
+
+.stage {
+  position: relative;
+}
+
+h1 {
+  margin: 0;
+  padding: 20px;
+}
+
+.trigger-1 {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.action-1 {
+  display: none;
+  width: 400px;
+  height: 320px;
+  margin: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: left;
+}
+
+.action-1.active {
+  display: block;
+}
