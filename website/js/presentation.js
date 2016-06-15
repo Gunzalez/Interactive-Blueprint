@@ -36,7 +36,6 @@
                 // adjust buttons
                 var buttonIndex = $(obj).attr('data-button-index');
                 $chapterButtons.removeClass('active');
-                console.log($chapterButtons);
                 $chapterButtons.eq(buttonIndex).addClass('active');
 
                 // release scroll lock

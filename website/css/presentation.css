@@ -55,7 +55,12 @@ body.story-mode {
     #chapters ul li {
       display: inline-block;
       position: relative;
-      vertical-align: bottom; }
+      vertical-align: bottom;
+      -webkit-transition: all 0.25s;
+      -moz-transition: all 0.25s;
+      -o-transition: all 0.25s;
+      transition: all 0.25s;
+      width: 100px; }
       #chapters ul li:nth-last-child(1) {
         border: none; }
       #chapters ul li span {
@@ -74,42 +79,47 @@ body.story-mode {
         -moz-transition: all 0.25s;
         -o-transition: all 0.25s;
         transition: all 0.25s;
-        opacity: 0; }
+        opacity: 0;
+        z-index: 5; }
       #chapters ul li .title {
         padding: 0 10px;
         left: 0;
         text-align: left;
         top: -50px;
         display: none; }
-      #chapters ul li:hover .number {
-        opacity: 1; }
-      #chapters ul li.active .title {
-        display: block; }
-      #chapters ul li.active .number {
-        opacity: 1; }
-      #chapters ul li.active img {
-        -webkit-filter: grayscale(0%);
-        filter: grayscale(0%); }
-    #chapters ul a {
-      display: inline-block;
-      width: 90px;
-      -webkit-transition: all 0.25s;
-      -moz-transition: all 0.25s;
-      -o-transition: all 0.25s;
-      transition: all 0.25s; }
-      #chapters ul a:hover {
+      #chapters ul li a {
+        display: inline-block;
+        -webkit-transition: all 0.25s;
+        -moz-transition: all 0.25s;
+        -o-transition: all 0.25s;
+        transition: all 0.25s; }
+      #chapters ul li img {
+        width: 100%;
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        -webkit-transition: all 0.25s;
+        -moz-transition: all 0.25s;
+        -o-transition: all 0.25s;
+        transition: all 0.25s; }
+      #chapters ul li:hover {
+        z-index: 10;
         width: 110px; }
-    #chapters ul img {
-      width: 100%;
-      -webkit-filter: grayscale(100%);
-      filter: grayscale(100%);
-      -webkit-transition: all 0.25s;
-      -moz-transition: all 0.25s;
-      -o-transition: all 0.25s;
-      transition: all 0.25s; }
-      #chapters ul img:hover {
-        -webkit-filter: grayscale(0%);
-        filter: grayscale(0%); }
+        #chapters ul li:hover .title {
+          display: block; }
+        #chapters ul li:hover .number {
+          opacity: 1; }
+        #chapters ul li:hover img {
+          -webkit-filter: grayscale(0%);
+          filter: grayscale(0%); }
+      #chapters ul li.active {
+        z-index: 10;
+        width: 110px; }
+        #chapters ul li.active .number {
+          opacity: 1; }
+        #chapters ul li.active img {
+          width: 110px;
+          -webkit-filter: grayscale(0%);
+          filter: grayscale(0%); }
 
 h1 {
   margin: 0;
