@@ -7,6 +7,13 @@ body.story-mode {
   background: url("../images/bg-gradient.png") 0 0 repeat-x;
   background-attachment: fixed; }
 
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0 0 12px 0; }
+
+p {
+  line-height: 150%; }
+
 .screen {
   padding-bottom: 120px; }
   .screen .stage {
@@ -49,7 +56,7 @@ body.story-mode {
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 900; }
+  z-index: 15; }
   #chapters ul {
     text-align: center; }
     #chapters ul li {
@@ -121,23 +128,46 @@ body.story-mode {
           -webkit-filter: grayscale(0%);
           filter: grayscale(0%); }
 
-h1 {
-  margin: 0;
-  padding: 20px; }
-
-.trigger-1 {
-  position: absolute;
+#top-menu {
+  position: fixed;
+  top: 20px;
   right: 20px;
-  top: 20px; }
+  z-index: 12; }
+  #top-menu a {
+    font-size: 50px;
+    display: block;
+    line-height: 50px;
+    text-decoration: none; }
+    #top-menu a .box-shadow-menu {
+      position: relative;
+      padding-left: 1.25em;
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      -o-transition: all 0.5s;
+      transition: all 0.5s; }
+    #top-menu a .box-shadow-menu:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.25em;
+      width: 1em;
+      height: 0.15em;
+      background: #ffffff;
+      box-shadow: 0 0.25em 0 0 #ffffff, 0 0.5em 0 0 #ffffff;
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      -o-transition: all 0.5s;
+      transition: all 0.5s; }
+    #top-menu a:hover .box-shadow-menu:before {
+      background: #33482B;
+      box-shadow: 0 0.25em 0 0 #33482B, 0 0.5em 0 0 #33482B; }
 
-.action-1 {
-  display: none;
-  width: 400px;
-  height: 320px;
-  margin: 20px;
-  background-color: #ffffff;
-  padding: 20px;
-  text-align: left; }
-
-.action-1.active {
-  display: block; }
+.close-overlay a {
+  font-size: 56px;
+  color: #7AAF36;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s; }
+  .close-overlay a:hover {
+    color: #33482B; }

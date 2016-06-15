@@ -6,20 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <title>Presentation</title>
 
-    <link rel="stylesheet" href="css/blockScroll.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link href="css/presentation.css" rel="stylesheet">
+    <link href="js/lib/overlay.css" rel="stylesheet">
 
 </head>
 <body class="story-mode">
 
+    <div id="top-menu">
+        <a href="#"><span class="box-shadow-menu">&nbsp;</span></a>
+    </div>
+
     <div class="scales"></div>
 
-    <div id="counter-right" class="counter">
+    <div id="counter-left" class="counter">
         <p>Day <span class="number">01</span></p>
     </div>
 
-    <div id="counter-left" class="counter">
+    <div id="counter-right" class="counter">
         <p>Users <span class="number">16.8</span>K</p>
     </div>
 
@@ -122,8 +126,8 @@
             <div class="stage">
                 <h1>Frame 1</h1>
 
-                <a href="#" class="btn btn-primary trigger-1">
-                    <span class="glyphicon glyphicon-plus"></span> Make it Rain
+                <a href="#" class="btn btn-primary overlay-launchers">
+                    <span class="glyphicon glyphicon-plus"></span> Overlay
                 </a>
 
                 <div class="action-1">
@@ -208,8 +212,24 @@
         </div>
     </div>
 
+    <div id="overlay" class="overlay">
+        <div class="modal">
+            <div class="close-overlay">
+                <a href="#!"><span class="glyphicon glyphicon-remove"></span></a>
+            </div>
+            <h1>Oh look, a modal appeared.</h1>
+            <p>Click on the X in the corner to see what happens.</p>
+        </div>
+    </div>
+
+    <a id="overlay-trigger"
+       data-overlay-trigger="overlay"
+       href="#!"
+       class="hidden">overlay-trigger</a>
+
     <script src="js/lib/jquery-1.9.1.min.js"></script>
     <script src="js/lib/jquery.fracs-0.15.0.min.js"></script>
+    <script src="js/lib/overlay.js"></script>
     <script src="js/lib/blockScroll.js"></script>
     <script src="js/presentation.js"></script>
 </body>

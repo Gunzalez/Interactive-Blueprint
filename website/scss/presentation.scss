@@ -1,12 +1,22 @@
 @import "mixins";
 
-$clr-green:         #7AAF36;
+$clr-green:                 #7AAF36;
+$clr-green-dark:            #33482B;
 
 body {
     &.story-mode {
         background: url("../images/bg-gradient.png") 0 0 repeat-x;
         background-attachment: fixed;
     }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0 0 12px 0;
+}
+
+p {
+    line-height: 150%;
 }
 
 .screen {
@@ -57,7 +67,7 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 900;
+    z-index: 15;
 
     ul {
         text-align: center;
@@ -149,34 +159,65 @@ body {
     }
 }
 
+#overlay-trigger {
 
-
-
-
-
-
-
-h1 {
-    margin: 0;
-    padding: 20px;
 }
 
-.trigger-1 {
-    position: absolute;
-    right: 20px;
+#top-menu {
+    position: fixed;
     top: 20px;
+    right: 20px;
+    z-index: 12;
+
+    a {
+        font-size: 50px;
+        display: block;
+        line-height: 50px;
+        text-decoration: none;
+
+        .box-shadow-menu {
+            position: relative;
+            padding-left: 1.25em;
+            @include transitions(0.5s);
+        }
+
+        .box-shadow-menu:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.25em;
+            width: 1em;
+            height: 0.15em;
+            background: #ffffff;
+            box-shadow: 0 0.25em 0 0 #ffffff, 0 0.5em 0 0 #ffffff;
+            @include transitions(0.5s);
+        }
+
+        &:hover {
+
+            .box-shadow-menu:before {
+                background: $clr-green-dark;
+                box-shadow: 0 0.25em 0 0 $clr-green-dark, 0 0.5em 0 0 $clr-green-dark;
+            }
+
+        }
+    }
 }
 
-.action-1 {
-    display: none;
-    width: 400px;
-    height: 320px;
-    margin: 20px;
-    background-color: #ffffff;
-    padding: 20px;
-    text-align: left;
+
+
+.close-overlay {
+
+    a {
+        font-size: 56px;
+        color: $clr-green;
+        @include transitions(0.5s);
+
+        &:hover {
+            color: $clr-green-dark;
+        }
+    }
 }
 
-.action-1.active {
-    display: block;
-}
+
+

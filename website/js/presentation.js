@@ -1,12 +1,6 @@
 // JavaScript Document
 (function ($, window) {
 
-     //$("#main-wrap").blockScroll({
-     //     scrollDuration: [jQuery duration],
-     //     fadeBlocks: [bool],
-     //     fadeDuration: [jQuery duration]
-     //});
-
     var $viewHTML = $("#story"),
         $chapterButtons = $('#chapters li'),
         isBusyScrolling = false;
@@ -18,23 +12,28 @@
 
     $('a', $chapterButtons).on('click', function(evt){
         evt.preventDefault();
-        var index = $('a', $chapterButtons).index($(this));
-        blockScroller.goto(index+2); // Adding 2 to match blockScroll's numbering
+        if(!isBusyScrolling){
+            isBusyScrolling = true;
+            var index = $('a', $chapterButtons).index($(this));
+            blockScroller.goto(index+2); // Adding 2 to match blockScroll's numbering
+        }
     });
 
-    $("#Intro-button").click(function() { blockScroller.goto(1); });
-    $("#About-button").click(function() { blockScroller.goto(3); });
-    $("#Features-button").click(function() { blockScroller.goto(4); });
-    $("#Download-button").click(function() { blockScroller.goto(7); });
-    $("#Install-button").click(function() { blockScroller.goto(8); });
-    $("#Customize-button").click(function() { blockScroller.goto(12); });
-    $("#Use-button").click(function() { blockScroller.goto(16); });
-    $("#Dot-button").click(function() { blockScroller.goto(18); });
+    $('#overlay').overlay();
+
+    $('.close-overlay a').on('click', function(){
+        $('.overlay#overlay').trigger('hide');
+    });
+
+    $('.overlay-launchers').on('click', function(evt){
+        evt.preventDefault();
+        $('#overlay-trigger').trigger('click');
+    });
 
     var adjustViewToVisibleScreen = function(){
         $('.screen').each(function(index, obj){
             var $stage = $('.stage',$(obj)),
-                fractions = $($stage).fracs(); // Todo: See using jQuery's offSetHeight
+                fractions = $($stage).fracs(); // Todo: Could have used jQuery's offSetHeight
 
             if(fractions.visible > 0){
                 $(obj).addClass('active');
@@ -53,9 +52,10 @@
         });
     };
 
-    $('.trigger-1').on('click', function(evt){
+    $('#top-menu a').on('click', function(evt){
         evt.preventDefault();
-        $('.action-1').addClass('play-misty');
+        //alert('Ha!, I knew you were going to do that, this button does nothing.');
+        $('#overlay-trigger').trigger('click');
     });
 
     $.fn.scrollEnd = function(callback, timeout) {
