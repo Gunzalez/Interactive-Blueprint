@@ -1,37 +1,32 @@
 // JavaScript Document
 (function ($, window) {
 
+    // html elements
     var $viewHTML = $("#story"),
         $chapterButtons = $('#chapters li'),
-        isBusyScrolling = false;
+        isBusyScrolling = false,
+        $elementsThatHide = $('.toggle-view');
 
-    var blockScroller = $viewHTML.blockScroll({
-        fadeBlocks: false
-        // scrollDuration: '500'
-    });
+    var blockScroller = $viewHTML.blockScroll({ fadeBlocks: false });
 
+    // attaches bottom navigation
     $('a', $chapterButtons).on('click', function(evt){
         evt.preventDefault();
         if(!isBusyScrolling){
             isBusyScrolling = true;
             var index = $('a', $chapterButtons).index($(this));
-            blockScroller.goto(index+2); // Adding 2 to match blockScroll's numbering
+            blockScroller.goto(index+2); // add 2 to match blockScroll's numbering
         }
     });
 
-    $('#overlay').overlay();
-
-    $('.close-overlay a').on('click', function(evt){
+    $('#start-the-journey').on('click', function(evt){
         evt.preventDefault();
-        $('.overlay#overlay').trigger('hide');
+        blockScroller.goto(2); // starts at second frame
     });
 
-    $('.overlay-launchers').on('click', function(evt){
-        evt.preventDefault();
-        $('#overlay-trigger').trigger('click');
-    });
+    // sets view to correct state
+    var adjustElementsToCurrentState = function(){
 
-    var adjustViewToVisibleScreen = function(){
         $('.screen').each(function(index, obj){
             var $stage = $('.stage',$(obj)),
                 fractions = $($stage).fracs(); // Todo: Could have used jQuery's offSetHeight
@@ -44,39 +39,58 @@
                 $chapterButtons.removeClass('active');
                 $chapterButtons.eq(buttonIndex).addClass('active');
 
-                // release scroll lock
-                isBusyScrolling = false;
-
             } else {
                 $(obj).removeClass('active');
             }
         });
+
+        // hide elements when at top or bottom of page
+        if(!$(window).scrollTop() || $(window).scrollTop() + $(window).height() == $(document).height()  ) {
+            $elementsThatHide.addClass('hidden');
+        } else {
+            $elementsThatHide.removeClass('hidden');
+        }
+
+        // release scroll lock
+        isBusyScrolling = false;
     };
 
-    $('#top-menu a').on('click', function(evt){
+    // overlay business
+    $('#overlay').overlay();
+
+    $('.close-overlay a').on('click', function(evt){
         evt.preventDefault();
-        //alert('Ha!, I knew you were going to do that, this button does nothing.');
+        $('#overlay').trigger('hide');
+    });
+
+    $('.overlay-launchers').on('click', function(evt){
+        evt.preventDefault();
+
+        // todo: insert new content
+        // todo: into overlay here first
+        //
+        //
+
+        // displays over lay
         $('#overlay-trigger').trigger('click');
     });
 
-    $.fn.scrollEnd = function(callback, timeout) {
-        $(this).scroll(function(){
-            var $this = $(this);
-            if ($this.data('scrollTimeout')) {
-                clearTimeout($this.data('scrollTimeout'));
-            }
-            $this.data('scrollTimeout', setTimeout(callback,timeout));
-        });
-    };
+    // Menu to Start, End, Overview, PDF etc
+    $('#top-menu a').on('click', function(evt){
+        evt.preventDefault();
 
+        // todo: create a drop down menus
+        alert('todo: create a drop down menus');
+    });
+
+    // detects end of scrolling
     $(window).scrollEnd(function(){
-        adjustViewToVisibleScreen();
+        adjustElementsToCurrentState();
     }, 100);
 
+    // sets document to top on page reload
     $(document).ready(function(){
         $(this).scrollTop(0);
     });
-
-  
     
 }(jQuery, window));

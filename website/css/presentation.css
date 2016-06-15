@@ -24,10 +24,17 @@ p {
     margin: 0 auto 20px auto;
     background-size: cover; }
 
-.scales {
+#intro, #outro {
+  padding-bottom: 0; }
+  #intro .stage, #outro .stage {
+    width: 100%;
+    height: 700px;
+    background: #ffffff;
+    margin: 0; }
+
+#scales {
   background: url("../images/scales.png") 0 0 no-repeat;
   background-size: cover;
-  z-index: 1;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -67,7 +74,7 @@ p {
       -moz-transition: all 0.25s;
       -o-transition: all 0.25s;
       transition: all 0.25s;
-      width: 100px; }
+      width: 80px; }
       #chapters ul li:nth-last-child(1) {
         border: none; }
       #chapters ul li span {
@@ -89,11 +96,12 @@ p {
         opacity: 0;
         z-index: 5; }
       #chapters ul li .title {
-        padding: 0 10px;
+        padding: 0 5px;
         left: 0;
         text-align: left;
-        top: -50px;
-        display: none; }
+        top: -40px;
+        display: none;
+        font-size: 13px; }
       #chapters ul li a {
         display: inline-block;
         -webkit-transition: all 0.25s;
@@ -108,25 +116,16 @@ p {
         -moz-transition: all 0.25s;
         -o-transition: all 0.25s;
         transition: all 0.25s; }
-      #chapters ul li:hover {
+      #chapters ul li.active, #chapters ul li:hover {
         z-index: 10;
-        width: 110px; }
-        #chapters ul li:hover .title {
-          display: block; }
-        #chapters ul li:hover .number {
+        width: 90px; }
+        #chapters ul li.active .number, #chapters ul li:hover .number {
           opacity: 1; }
-        #chapters ul li:hover img {
+        #chapters ul li.active img, #chapters ul li:hover img {
           -webkit-filter: grayscale(0%);
           filter: grayscale(0%); }
-      #chapters ul li.active {
-        z-index: 10;
-        width: 110px; }
-        #chapters ul li.active .number {
-          opacity: 1; }
-        #chapters ul li.active img {
-          width: 110px;
-          -webkit-filter: grayscale(0%);
-          filter: grayscale(0%); }
+      #chapters ul li:hover .title {
+        display: block; }
 
 #top-menu {
   position: fixed;
