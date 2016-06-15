@@ -21,7 +21,8 @@
 
     $('#overlay').overlay();
 
-    $('.close-overlay a').on('click', function(){
+    $('.close-overlay a').on('click', function(evt){
+        evt.preventDefault();
         $('.overlay#overlay').trigger('hide');
     });
 

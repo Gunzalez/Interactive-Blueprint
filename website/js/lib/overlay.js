@@ -31,7 +31,6 @@
             });
 
             $('a[data-overlay-trigger]:not([data-overlay-trigger=""])').on('click', function () {
-                //console.log($('.overlay#' + $(this).attr('data-overlay-trigger')))
                 $('.overlay#' + $(this).attr('data-overlay-trigger')).trigger('show');
             });
         })
