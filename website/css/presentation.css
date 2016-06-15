@@ -1,16 +1,16 @@
-body {
-  /* fallback */
-  background-color: #33492a;
-  /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#79b02a), to(#33492a));
-  /* Safari 5.1, Chrome 10+ */
-  background: -webkit-linear-gradient(top, #79b02a, #33492a);
-  /* Firefox 3.6+ */
-  background: -moz-linear-gradient(top, #79b02a, #33492a);
-  /* IE 10 */
-  background: -ms-linear-gradient(top, #79b02a, #33492a);
-  /* Opera 11.10+ */
-  background: -o-linear-gradient(top, #79b02a, #33492a); }
+body.story-mode {
+  background: url("../images/bg-gradient.png") 0 0 repeat-x;
+  background-attachment: fixed; }
+
+.scales {
+  background: url("../images/scales.png") 0 0 no-repeat;
+  background-size: cover;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0; }
 
 .stage {
   width: 1367px;
@@ -20,13 +20,16 @@ body {
   background-size: cover; }
 
 #days, #users {
+  z-index: 2;
   position: fixed;
   left: 20px;
   top: 50%;
-  margin-top: -40px;
+  margin-top: -80px;
   width: 80px;
   height: 80px;
-  border: 4px solid #000; }
+  border: 1px solid #ccc;
+  background-color: whitesmoke;
+  text-align: center; }
 
 #users {
   left: auto;

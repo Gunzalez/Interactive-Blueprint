@@ -25,10 +25,18 @@
 
     var whichFrameIsVisible = function(){
         $('.screen').each(function(index, obj){
-            if($('.stage',$(obj)).visible(true)){
-                //console.log($('.stage',$(obj)));
-                $(obj).addClass('active-frame');
-                console.log($(obj).attr('id'));
+            var $screen = $('.stage',$(obj));
+            if($screen.visible(true)){
+                console.log('Beats');
+
+                var fracs = $($screen).fracs();
+                console.log(fracs);
+                if(fracs > 50){
+                    //console.log($('.stage',$(obj)));
+                    $(obj).addClass('active-frame');
+                    console.log($(obj).attr('id'));
+                }
+
             } else {
                 $(obj).removeClass('active-frame');
             }

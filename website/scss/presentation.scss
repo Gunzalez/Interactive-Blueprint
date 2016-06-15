@@ -2,9 +2,22 @@
 @import "mixins";
 
 body {
-  @include backGroundGradient(#79b02a, #33492a, #33492a);
+  &.story-mode {
+    background: url("../images/bg-gradient.png") 0 0 repeat-x;
+    background-attachment: fixed;
+  }
 }
 
+.scales {
+  background: url("../images/scales.png") 0 0 no-repeat;
+  background-size: cover;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 
 .stage {
   width: 1367px; // 1920
@@ -15,13 +28,16 @@ body {
 }
 
 #days, #users {
+  z-index: 2;
   position: fixed;
   left: 20px;
   top: 50%;
-  margin-top: -40px;
+  margin-top: -80px;
   width: 80px;
   height: 80px;
-  border: 4px solid #000;
+  border: 1px solid #ccc;
+  background-color: whitesmoke;
+  text-align:  center;
 }
 
 #users {
