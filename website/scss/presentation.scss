@@ -10,13 +10,13 @@ body {
 }
 
 .screen {
-    padding-bottom: 10px;
+    padding-bottom: 120px;
 
     .stage {
         position: relative;
-        width: 1367px; // 1920
-        height: 768px; // 1200
-        background: url("../images/meow.jpg") 0 0 no-repeat;
+        width: 1094px;
+        height: 600px;
+        background: url("../images/chapter.png") 0 0 no-repeat;
         margin: 0 auto 20px auto;
         background-size: cover;
     }

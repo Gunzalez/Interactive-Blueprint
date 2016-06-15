@@ -8,12 +8,12 @@ body.story-mode {
   background-attachment: fixed; }
 
 .screen {
-  padding-bottom: 10px; }
+  padding-bottom: 120px; }
   .screen .stage {
     position: relative;
-    width: 1367px;
-    height: 768px;
-    background: url("../images/meow.jpg") 0 0 no-repeat;
+    width: 1094px;
+    height: 600px;
+    background: url("../images/chapter.png") 0 0 no-repeat;
     margin: 0 auto 20px auto;
     background-size: cover; }
 

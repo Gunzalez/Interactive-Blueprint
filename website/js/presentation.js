@@ -16,6 +16,12 @@
         // scrollDuration: '500'
     });
 
+    $('a', $chapterButtons).on('click', function(evt){
+        evt.preventDefault();
+        var index = $('a', $chapterButtons).index($(this));
+        blockScroller.goto(index+2); // Adding 2 to match blockScroll's numbering
+    });
+
     $("#Intro-button").click(function() { blockScroller.goto(1); });
     $("#About-button").click(function() { blockScroller.goto(3); });
     $("#Features-button").click(function() { blockScroller.goto(4); });
