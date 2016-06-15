@@ -1,13 +1,21 @@
 {
-  "name": "Presentation",
+  "name": "interactive-blueprint",
   "version": "1.0.0",
-  "description": "Making Lloyds Blueprint interactive",
+  "description": "Making Lloyds Blueprint into an interative storyboard",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gunzalez/Interactive-Blueprint.git"
+  },
+  "author": "Segun Konibire",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gunzalez/Interactive-Blueprint/issues"
+  },
+  "homepage": "https://github.com/Gunzalez/Interactive-Blueprint#readme",
   "devDependencies": {
     "browser-sync": "^2.12.10",
     "gulp": "^3.9.1",

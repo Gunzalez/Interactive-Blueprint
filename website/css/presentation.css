@@ -2,6 +2,9 @@ body.story-mode {
   background: url("../images/bg-gradient.png") 0 0 repeat-x;
   background-attachment: fixed; }
 
+.screen {
+  padding-bottom: 10px; }
+
 .scales {
   background: url("../images/scales.png") 0 0 no-repeat;
   background-size: cover;
@@ -10,7 +13,8 @@ body.story-mode {
   width: 100%;
   position: fixed;
   top: 0;
-  left: 0; }
+  left: 0;
+  opacity: 0.1; }
 
 .stage {
   width: 1367px;
@@ -19,7 +23,7 @@ body.story-mode {
   margin: 0 auto 20px auto;
   background-size: cover; }
 
-#days, #users {
+.counter {
   z-index: 2;
   position: fixed;
   left: 20px;
@@ -31,11 +35,11 @@ body.story-mode {
   background-color: whitesmoke;
   text-align: center; }
 
-#users {
+#counter-right {
   left: auto;
   right: 20px; }
 
-#controls {
+#chapters {
   position: fixed;
   bottom: 0;
   left: 0;

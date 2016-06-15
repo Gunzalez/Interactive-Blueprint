@@ -7,7 +7,7 @@
      //     fadeDuration: [jQuery duration]
      //});
 
-    var blockScroller = $("#main-wrap").blockScroll({fadeBlocks:false});
+    var blockScroller = $("#story").blockScroll({fadeBlocks:false});
     $("#Intro-button").click(function() { blockScroller.goto(1); });
     $("#About-button").click(function() { blockScroller.goto(3); });
     $("#Features-button").click(function() { blockScroller.goto(4); });
@@ -17,28 +17,16 @@
     $("#Use-button").click(function() { blockScroller.goto(16); });
     $("#Dot-button").click(function() { blockScroller.goto(18); });
 
-    //if ($('#frame3').visible(true)) {
-    //    console.log('Hey it\'s me');
-    //} else {
-    //    // The element is NOT visible, do something else
-    //}
 
     var whichFrameIsVisible = function(){
         $('.screen').each(function(index, obj){
-            var $screen = $('.stage',$(obj));
-            if($screen.visible(true)){
-                console.log('Beats');
+            var $stage = $('.stage',$(obj)),
+                fractions = $($stage).fracs(); // Todo: See using jQuery's offSetHeight
 
-                var fracs = $($screen).fracs();
-                console.log(fracs);
-                if(fracs > 50){
-                    //console.log($('.stage',$(obj)));
-                    $(obj).addClass('active-frame');
-                    console.log($(obj).attr('id'));
-                }
-
+            if(fractions.visible > 0){
+                $(obj).addClass('active');
             } else {
-                $(obj).removeClass('active-frame');
+                $(obj).removeClass('active');
             }
         });
     };
@@ -58,9 +46,7 @@
         });
     };
 
-    // how to call it (with a 1000ms timeout):
     $(window).scrollEnd(function(){
-        //alert('stopped scrolling');
         whichFrameIsVisible();
     }, 100);
 
