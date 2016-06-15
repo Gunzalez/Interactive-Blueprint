@@ -1,5 +1,7 @@
 @import "mixins";
 
+$clr-green:         #7AAF36;
+
 body {
     &.story-mode {
         background: url("../images/bg-gradient.png") 0 0 repeat-x;
@@ -9,6 +11,15 @@ body {
 
 .screen {
     padding-bottom: 10px;
+
+    .stage {
+        position: relative;
+        width: 1367px; // 1920
+        height: 768px; // 1200
+        background: url("../images/meow.jpg") 0 0 no-repeat;
+        margin: 0 auto 20px auto;
+        background-size: cover;
+    }
 }
 
 .scales {
@@ -20,15 +31,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    opacity: 0.1;
-}
-
-.stage {
-    width: 1367px; // 1920
-    height: 768px; // 1200
-    background: url("../images/meow.jpg") 0 0 no-repeat;
-    margin: 0 auto 20px auto;
-    background-size: cover;
+    opacity: 0.4;
 }
 
 .counter {
@@ -54,15 +57,101 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 60px;
-    border-top: 1px solid #cccccc;
     z-index: 900;
-    background-color: #ffffff;
+
+    ul {
+        text-align: center;
+        @extend %cleanUL;
+
+        li {
+            display: inline-block;
+            position: relative;
+            vertical-align: bottom;
+
+            &:nth-last-child(1){
+                border: none;
+            }
+
+            span {
+                position: absolute;
+                color: #ffffff;
+            }
+
+            .number {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-color: $clr-green;
+                top: 50%;
+                left: 50%;
+                margin: -15px 0 0 -15px;
+                line-height: 30px;
+                @include transitions(0.25s);
+                opacity: 0;
+            }
+
+            .title {
+                padding: 0 10px;
+                left: 0;
+                text-align: left;
+                top: -50px;
+                display: none;
+            }
+            
+            &:hover {
+
+                .number {
+                    opacity: 1;
+                }
+            }
+
+            &.active {
+
+                .title {
+                    display: block;
+                }
+
+                .number {
+                    opacity: 1;
+                }
+
+                img {
+                    -webkit-filter: grayscale(0%);
+                    filter: grayscale(0%);
+                }
+            }
+        }
+
+        a {
+            display: inline-block;
+            width: 90px;
+            @include transitions(0.25s);
+
+            &:hover {
+                width: 110px;
+            }
+        }
+
+        img {
+            width: 100%;
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+            @include transitions(0.25s);
+
+            &:hover {
+                -webkit-filter: grayscale(0%);
+                filter: grayscale(0%);
+            }
+        }
+    }
 }
 
-.stage {
-    position: relative;
-}
+
+
+
+
+
+
 
 h1 {
     margin: 0;

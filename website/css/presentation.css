@@ -1,9 +1,21 @@
+#chapters ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
 body.story-mode {
   background: url("../images/bg-gradient.png") 0 0 repeat-x;
   background-attachment: fixed; }
 
 .screen {
   padding-bottom: 10px; }
+  .screen .stage {
+    position: relative;
+    width: 1367px;
+    height: 768px;
+    background: url("../images/meow.jpg") 0 0 no-repeat;
+    margin: 0 auto 20px auto;
+    background-size: cover; }
 
 .scales {
   background: url("../images/scales.png") 0 0 no-repeat;
@@ -14,14 +26,7 @@ body.story-mode {
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 0.1; }
-
-.stage {
-  width: 1367px;
-  height: 768px;
-  background: url("../images/meow.jpg") 0 0 no-repeat;
-  margin: 0 auto 20px auto;
-  background-size: cover; }
+  opacity: 0.4; }
 
 .counter {
   z-index: 2;
@@ -44,13 +49,67 @@ body.story-mode {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 60px;
-  border-top: 1px solid #cccccc;
-  z-index: 900;
-  background-color: #ffffff; }
-
-.stage {
-  position: relative; }
+  z-index: 900; }
+  #chapters ul {
+    text-align: center; }
+    #chapters ul li {
+      display: inline-block;
+      position: relative;
+      vertical-align: bottom; }
+      #chapters ul li:nth-last-child(1) {
+        border: none; }
+      #chapters ul li span {
+        position: absolute;
+        color: #ffffff; }
+      #chapters ul li .number {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #7AAF36;
+        top: 50%;
+        left: 50%;
+        margin: -15px 0 0 -15px;
+        line-height: 30px;
+        -webkit-transition: all 0.25s;
+        -moz-transition: all 0.25s;
+        -o-transition: all 0.25s;
+        transition: all 0.25s;
+        opacity: 0; }
+      #chapters ul li .title {
+        padding: 0 10px;
+        left: 0;
+        text-align: left;
+        top: -50px;
+        display: none; }
+      #chapters ul li:hover .number {
+        opacity: 1; }
+      #chapters ul li.active .title {
+        display: block; }
+      #chapters ul li.active .number {
+        opacity: 1; }
+      #chapters ul li.active img {
+        -webkit-filter: grayscale(0%);
+        filter: grayscale(0%); }
+    #chapters ul a {
+      display: inline-block;
+      width: 90px;
+      -webkit-transition: all 0.25s;
+      -moz-transition: all 0.25s;
+      -o-transition: all 0.25s;
+      transition: all 0.25s; }
+      #chapters ul a:hover {
+        width: 110px; }
+    #chapters ul img {
+      width: 100%;
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+      -webkit-transition: all 0.25s;
+      -moz-transition: all 0.25s;
+      -o-transition: all 0.25s;
+      transition: all 0.25s; }
+      #chapters ul img:hover {
+        -webkit-filter: grayscale(0%);
+        filter: grayscale(0%); }
 
 h1 {
   margin: 0;

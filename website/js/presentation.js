@@ -7,7 +7,15 @@
      //     fadeDuration: [jQuery duration]
      //});
 
-    var blockScroller = $("#story").blockScroll({fadeBlocks:false});
+    var $viewHTML = $("#story"),
+        $chapterButtons = $('#chapters li'),
+        isBusyScrolling = false;
+
+    var blockScroller = $viewHTML.blockScroll({
+        fadeBlocks: false
+        // scrollDuration: '500'
+    });
+
     $("#Intro-button").click(function() { blockScroller.goto(1); });
     $("#About-button").click(function() { blockScroller.goto(3); });
     $("#Features-button").click(function() { blockScroller.goto(4); });
@@ -17,14 +25,23 @@
     $("#Use-button").click(function() { blockScroller.goto(16); });
     $("#Dot-button").click(function() { blockScroller.goto(18); });
 
-
-    var whichFrameIsVisible = function(){
+    var adjustViewToVisibleScreen = function(){
         $('.screen').each(function(index, obj){
             var $stage = $('.stage',$(obj)),
                 fractions = $($stage).fracs(); // Todo: See using jQuery's offSetHeight
 
             if(fractions.visible > 0){
                 $(obj).addClass('active');
+
+                // adjust buttons
+                var buttonIndex = $(obj).attr('data-button-index');
+                $chapterButtons.removeClass('active');
+                console.log($chapterButtons);
+                $chapterButtons.eq(buttonIndex).addClass('active');
+
+                // release scroll lock
+                isBusyScrolling = false;
+
             } else {
                 $(obj).removeClass('active');
             }
@@ -47,7 +64,7 @@
     };
 
     $(window).scrollEnd(function(){
-        whichFrameIsVisible();
+        adjustViewToVisibleScreen();
     }, 100);
 
     $(document).ready(function(){
