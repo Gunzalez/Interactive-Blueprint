@@ -37,8 +37,9 @@
                 // adjust buttons
                 var buttonIndex = $(obj).attr('data-button-index');
                 $chapterButtons.removeClass('active');
-                $chapterButtons.eq(buttonIndex).addClass('active');
-
+                if(buttonIndex !== 'undefined'){
+                    $chapterButtons.eq(buttonIndex).addClass('active');
+                }
             } else {
                 $(obj).removeClass('active');
             }
