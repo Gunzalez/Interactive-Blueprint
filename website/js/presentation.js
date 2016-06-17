@@ -7,7 +7,10 @@
         isBusyScrolling = false,
         $elementsThatHide = $('.toggle-view');
 
-    var blockScroller = $viewHTML.blockScroll({ fadeBlocks: false });
+    var blockScroller = $viewHTML.blockScroll({
+        fadeBlocks: false,
+        scrollDuration: 500
+    });
 
     // attaches bottom navigation
     $('a', $chapterButtons).on('click', function(evt){
