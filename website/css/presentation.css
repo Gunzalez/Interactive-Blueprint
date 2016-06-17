@@ -25,30 +25,54 @@ p {
     width: 1094px;
     height: 600px;
     background: url("../images/chapter.png") 0 0 no-repeat;
-    background-size: cover; }
+    background-size: cover;
+    position: relative;
+    -webkit-box-shadow: 0 4px 12px 0 rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0 4px 12px 0 rgba(50, 50, 50, 0.75);
+    box-shadow: 0 4px 12px 0 rgba(50, 50, 50, 0.75); }
   .screen .launchers {
     position: absolute;
     top: 100px;
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    z-index: -10;
-    -webkit-transition: all 0.25s;
-    -moz-transition: all 0.25s;
-    -o-transition: all 0.25s;
-    transition: all 0.25s;
-    background: #dcdcdc;
+    -webkit-transition: all 0.15s;
+    -moz-transition: all 0.15s;
+    -o-transition: all 0.15s;
+    transition: all 0.15s;
+    -webkit-box-shadow: 0 4px 12px 0 rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0 4px 12px 0 rgba(50, 50, 50, 0.75);
+    box-shadow: 0 4px 12px 0 rgba(50, 50, 50, 0.75);
+    background: #ffffff;
     border: none; }
     .screen .launchers:hover {
       background: #f5f5f5; }
+    .screen .launchers i {
+      width: 120px;
+      line-height: 120px;
+      font-size: 3.2em;
+      text-align: center;
+      color: #33482B; }
   .screen .video-launcher {
-    left: 0; }
+    left: 0;
+    font-size: 1.2rem; }
   .screen .overlay-launcher {
     right: 0; }
   .screen.active .video-launcher {
-    left: -80px; }
+    left: -60px; }
+    .screen.active .video-launcher:hover {
+      left: -90px;
+      font-size: 1.1em; }
+      .screen.active .video-launcher:hover i {
+        color: #7AAF36; }
   .screen.active .overlay-launcher {
-    right: -80px; }
+    right: -60px; }
+    .screen.active .overlay-launcher:hover {
+      right: -90px;
+      font-size: 1.6em;
+      color: #7AAF36; }
+      .screen.active .overlay-launcher:hover i {
+        color: #7AAF36; }
 
 #intro .stage, #outro .stage {
   width: 100%;
@@ -76,7 +100,6 @@ p {
   opacity: 0.4; }
 
 .counter {
-  z-index: 2;
   position: fixed;
   left: 20px;
   top: 50%;
@@ -96,7 +119,7 @@ p {
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 15; }
+  z-index: 1; }
   #chapters ul {
     text-align: center; }
     #chapters ul li {
@@ -127,7 +150,7 @@ p {
         -o-transition: all 0.25s;
         transition: all 0.25s;
         opacity: 0;
-        z-index: 5; }
+        z-index: 1; }
       #chapters ul li .title {
         padding: 0 5px;
         left: 0;
@@ -150,7 +173,6 @@ p {
         -o-transition: all 0.25s;
         transition: all 0.25s; }
       #chapters ul li.active, #chapters ul li:hover {
-        z-index: 10;
         width: 90px; }
         #chapters ul li.active .number, #chapters ul li:hover .number {
           opacity: 1; }
@@ -164,7 +186,7 @@ p {
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 12; }
+  z-index: 1; }
   #top-menu a {
     font-size: 50px;
     display: block;

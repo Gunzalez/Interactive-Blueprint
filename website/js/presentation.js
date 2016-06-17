@@ -67,7 +67,7 @@
         $('#overlay').trigger('hide');
     });
 
-    $('.overlay-launchers').on('click', function(evt){
+    $('.overlay-launcher').on('click', function(evt){
         evt.preventDefault();
 
         // todo: insert new content
