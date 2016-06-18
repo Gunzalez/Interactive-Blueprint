@@ -21,11 +21,17 @@
     <div id="scales" class="parallax"></div>
 
     <div id="counter-left" class="counter toggle-view hidden">
-        <p>Day <span class="number">01</span></p>
+        <p>
+            <span class="taq">Days</span>
+            <span class="number" id="days">0</span>
+        </p>
     </div>
 
     <div id="counter-right" class="counter toggle-view hidden">
-        <p>Users <span class="number">16.8</span>K</p>
+        <p>
+            <span class="tag">Leads</span>
+            <span class="number" id="leads">16,000</span>
+        </p>
     </div>
 
     <div id="chapters" class="toggle-view hidden">
@@ -131,7 +137,9 @@
 
             </div>
         </div>
-        <div id="frame1" data-button-index="0" class="screen">
+        <div id="frame1"
+             data-button-index="0"
+             class="screen">
             <div class="stage">
                 <a href="#" class="video-launcher launchers">
                     <i class="fa fa-fw" aria-hidden="true"></i>
@@ -145,7 +153,13 @@
                 </div>
             </div>
         </div>
-        <div id="frame2" data-button-index="1" class="screen">
+        <div id="frame2"
+             data-button-index="1"
+             data-count-days-start="0"
+             data-count-days-end="10"
+             data-count-leads-start="16000"
+             data-count-leads-end="12400"
+             class="screen">
             <div class="stage">
                 <a href="#" class="video-launcher launchers">
                     <i class="fa fa-fw" aria-hidden="true"></i>
@@ -157,9 +171,18 @@
                     <h1>Frame 2</h1>
 
                 </div>
+                <div class="video-player">
+
+                </div>
             </div>
         </div>
-        <div id="frame3" data-button-index="2" class="screen">
+        <div id="frame3"
+             data-button-index="2"
+             data-count-days-start="10"
+             data-count-days-end="26"
+             data-count-leads-start="12399"
+             data-count-leads-end="7700"
+             class="screen">
             <div class="stage">
                 <a href="#" class="overlay-launcher launchers">
                     <i class="fa fa-fw" aria-hidden="true"></i>
@@ -170,7 +193,13 @@
                 </div>
             </div>
         </div>
-        <div id="frame4" data-button-index="3" class="screen">
+        <div id="frame4"
+             data-button-index="3"
+             data-count-days-start="26"
+             data-count-days-end="40"
+             data-count-leads-start="7700"
+             data-count-leads-end="6100"
+             class="screen">
             <div class="stage">
                 <a href="#" class="video-launcher launchers">
                     <i class="fa fa-fw" aria-hidden="true"></i>

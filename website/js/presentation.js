@@ -27,8 +27,15 @@
         blockScroller.goto(2); // starts at second frame
     });
 
+    function commaSeparateNumber (val){
+        while (/(\d+)(\d{3})/.test(val.toString())){
+            val = val.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        }
+        return val;
+    }
+
     // sets view to correct state
-    var adjustElementsToCurrentState = function(){
+    function adjustElementsToCurrentState(){
 
         $('.screen').each(function(index, obj){
             var $stage = $('.stage',$(obj)),
@@ -43,6 +50,34 @@
                 if(buttonIndex !== 'undefined'){
                     $chapterButtons.eq(buttonIndex).addClass('active');
                 }
+
+                // get count down/up values
+                var daysStart = $(obj).attr('data-count-days-start');
+                var daysEnd = $(obj).attr('data-count-days-end');
+                var leadsStart = $(obj).attr('data-count-leads-start');
+                var leadsEnd = $(obj).attr('data-count-leads-end');
+
+                if(daysStart !== 'undefined'){
+                    $({someValue: daysStart}).animate({someValue: daysEnd}, {
+                        duration: 1500,
+                        easing:'swing',
+                        step: function() {
+                            $('#days').text(commaSeparateNumber(Math.round(this.someValue)));
+                        }
+                    });
+                }
+
+                if(leadsStart !== 'undefined'){
+                    $({someValue: leadsStart}).animate({someValue: leadsEnd}, {
+                        duration: 1000,
+                        easing:'swing',
+                        step: function() {
+                            $('#leads').text(commaSeparateNumber(Math.round(this.someValue)));
+                        }
+                    });
+                }
+
+
             } else {
                 $(obj).removeClass('active');
             }
@@ -57,7 +92,7 @@
 
         // release scroll lock
         isBusyScrolling = false;
-    };
+    }
 
     // overlay business
     $('#overlay').overlay();
@@ -67,7 +102,7 @@
         $('#overlay').trigger('hide');
     });
 
-    $('.overlay-launcher').on('click', function(evt){
+    $('.video-launcher').on('click', function(evt){
         evt.preventDefault();
 
         // todo: insert new content
@@ -75,7 +110,18 @@
         //
         //
 
-        // displays over lay
+    });
+
+    $('.overlay-launcher').on('click', function(evt){
+        evt.preventDefault();
+
+        // todo:
+        // insert new content
+        // into overlay here first
+        //
+        //
+
+        // display overlay
         $('#overlay-trigger').trigger('click');
     });
 
@@ -87,14 +133,17 @@
         alert('todo: create a drop down menus');
     });
 
-    // detects end of scrolling
+    // detect end of scrolling
     $(window).scrollEnd(function(){
         adjustElementsToCurrentState();
     }, 100);
 
-    // sets document to top on page reload
-    $(document).ready(function(){
-        $(this).scrollTop(0);
-    });
-    
+    $(document).scroll(function(){
+        console.log('started');
+    }, 100);
+
+
+    // set document to top on page reload
+    // $(this).scrollTop(0);
+
 }(jQuery, window));
