@@ -52,32 +52,53 @@
                 }
 
                 // get count down/up values
-                var daysStart = $(obj).attr('data-count-days-start');
-                var daysEnd = $(obj).attr('data-count-days-end');
-                var leadsStart = $(obj).attr('data-count-leads-start');
-                var leadsEnd = $(obj).attr('data-count-leads-end');
+                var daysStart = null,
+                    daysEnd = null,
+                    leadsStart = null,
+                    leadsEnd = null,
+                    $days = $('#days'),
+                    $leads = $('#leads');
 
-                if(daysStart !== 'undefined'){
-                    $({someValue: daysStart}).animate({someValue: daysEnd}, {
-                        duration: 1500,
-                        easing:'swing',
-                        step: function() {
-                            $('#days').text(commaSeparateNumber(Math.round(this.someValue)));
-                        }
-                    });
+                if(scrollDirection == 'down'){
+
+                    daysStart = $(obj).attr('data-count-days-start');
+                    daysEnd = $(obj).attr('data-count-days-end');
+                    leadsStart = $(obj).attr('data-count-leads-start');
+                    leadsEnd = $(obj).attr('data-count-leads-end');
+
+                    if(daysStart !== 'undefined'){
+                        $({someValue: daysStart}).animate({someValue: daysEnd}, {
+                            duration: 1500,
+                            easing:'swing',
+                            step: function() {
+                                $days.text(Math.round(this.someValue));
+                            }
+                        });
+                    }
+
+                    if(leadsStart !== 'undefined'){
+                        $({someValue: leadsStart}).animate({someValue: leadsEnd}, {
+                            duration: 1000,
+                            easing:'swing',
+                            step: function() {
+                                $leads.text(commaSeparateNumber(Math.round(this.someValue)));
+                            }
+                        });
+                    }
+
+                } else {
+                    
+                    daysEnd = $(obj).attr('data-count-days-end');
+                    leadsEnd = $(obj).attr('data-count-leads-end');
+
+                    if(daysEnd !== 'undefined'){
+                        $days.text(Math.round(daysEnd));
+                    }
+
+                    if(leadsEnd !== 'undefined'){
+                        $leads.text(commaSeparateNumber(Math.round(leadsEnd)));
+                    }
                 }
-
-                if(leadsStart !== 'undefined'){
-                    $({someValue: leadsStart}).animate({someValue: leadsEnd}, {
-                        duration: 1000,
-                        easing:'swing',
-                        step: function() {
-                            $('#leads').text(commaSeparateNumber(Math.round(this.someValue)));
-                        }
-                    });
-                }
-
-
             } else {
                 $(obj).removeClass('active');
             }
@@ -105,10 +126,13 @@
     $('.video-launcher').on('click', function(evt){
         evt.preventDefault();
 
-        // todo: insert new content
-        // todo: into overlay here first
+        // todo:
+        // 1. get video id
+        // 2. display video frame
         //
         //
+
+        alert('TODO: Create Video functionality');
 
     });
 
@@ -116,8 +140,8 @@
         evt.preventDefault();
 
         // todo:
-        // insert new content
-        // into overlay here first
+        // 1. ajax in content
+        // 2. insert into overlay content
         //
         //
 
@@ -130,7 +154,7 @@
         evt.preventDefault();
 
         // todo: create a drop down menus
-        alert('todo: create a drop down menus');
+        alert('TODO: create a drop down menus');
     });
 
     // detect end of scrolling
@@ -138,10 +162,21 @@
         adjustElementsToCurrentState();
     }, 100);
 
-    $(document).scroll(function(){
-        console.log('started');
-    }, 100);
+    var lastScrollTop = 0;
+    var scrollDirection = null;
+    $(window).scroll(function(event){
+        var st = $(this).scrollTop();
+        if (st > lastScrollTop){
+            scrollDirection = 'down';
+        } else {
+            scrollDirection = 'up';
+        }
+        lastScrollTop = st;
+    });
 
+    // $(document).scroll(function(){
+    //     console.log('started');
+    // }, 100);
 
     // set document to top on page reload
     // $(this).scrollTop(0);
